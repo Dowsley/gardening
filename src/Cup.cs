@@ -1,48 +1,63 @@
 using Godot;
 using System;
 
-public class Cup : Node2D
+public class Cup : RigidBody2D
 {
-    private Vector2 _previousMousePosition = new Vector2();
     private bool _isDragging = false;
-    
 
-    // public override void _Ready()
-    // {
-    //     Connect("input_event", this, nameof(_on_Draggable_input_event));
-    // }
+    private Vector2 _previousMousePosition = new Vector2();
+    private Vector2 _velocity = Vector2.Zero;
 
-    private void _on_Draggable_input_event(Viewport viewport, InputEvent @event, int shapeIdx)
+    public override void _Ready()
     {
-        // Check if the event is a touch or mouse press inside the collision shape.
-        if (@event is InputEventMouseButton mouseButtonEvent && mouseButtonEvent.Pressed && mouseButtonEvent.ButtonIndex == (int)ButtonList.Left)
-        {
-            GetTree().SetInputAsHandled();
-            _previousMousePosition = mouseButtonEvent.Position;
-            _isDragging = true;
-        }
+        // Initialization code if needed
     }
-
+    
     public override void _Input(InputEvent @event)
     {
-        // Return early if not dragging.
         if (!_isDragging)
         {
             return;
         }
 
-        // Check if the event is a mouse button release.
+        var previousPosition = Position;
+
+        // Release
         if (@event is InputEventMouseButton mouseButtonEvent && !mouseButtonEvent.Pressed && mouseButtonEvent.ButtonIndex == (int)ButtonList.Left)
         {
             _previousMousePosition = new Vector2();
             _isDragging = false;
+            Mode = ModeEnum.Rigid;
+
+            var localImpulsePoint = ToLocal(mouseButtonEvent.Position);
+            localImpulsePoint = localImpulsePoint.LimitLength(5);
+
+            bool isUpsideDown = Mathf.Abs(Mathf.Sin(Rotation)) > 0.707; // Approximately checks for upside down -> sin(45°)
+            if (isUpsideDown)
+            {
+                localImpulsePoint.x = -localImpulsePoint.x;
+            }
+
+            var impulse = _velocity * 20;
+            ApplyImpulse(localImpulsePoint, impulse.LimitLength(1000));
         }
 
-        // Check if the event is a mouse motion.
         if (_isDragging && @event is InputEventMouseMotion mouseMotionEvent)
         {
             Position += mouseMotionEvent.Position - _previousMousePosition;
+            _velocity = Position - previousPosition;
             _previousMousePosition = mouseMotionEvent.Position;
+        }
+    }
+
+    private void _on_Draggable_input_event(Viewport viewport, InputEvent @event, int shapeIdx)
+    {
+        if (@event is InputEventMouseButton mouseButtonEvent && mouseButtonEvent.Pressed && mouseButtonEvent.ButtonIndex == (int)ButtonList.Left)
+        {
+            GetTree().SetInputAsHandled();
+            _previousMousePosition = mouseButtonEvent.Position;
+            _isDragging = true;
+            Mode = ModeEnum.Static;
         }
     }
 }
