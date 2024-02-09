@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class WateringCan : RigidBody2D
+public partial class WateringCan : RigidBody2D
 {
     private bool _isDragging = false;
 
@@ -63,5 +63,6 @@ public class WateringCan : RigidBody2D
             _isDragging = true;
             Mode = ModeEnum.Static;
         }
+        
     }
 }
