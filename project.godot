@@ -10,9 +10,9 @@ config_version=4
 
 [application]
 
-config/name="Bartender"
+config/name="Gardening"
 run/main_scene="res://src/Main.tscn"
-config/icon="res://assets/icon.png"
+config/icon="res://assets/pots/ClayPot/ClayPot.png"
 
 [display]
 
@@ -27,7 +27,7 @@ common/drop_mouse_on_gui_input_disabled=true
 
 [mono]
 
-project/assembly_name="Bartender"
+project/assembly_name="Gardening"
 
 [physics]
 
