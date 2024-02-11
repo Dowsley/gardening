@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://src/Main.cs" type="Script" id=1]
 [ext_resource path="res://src/core/WateringCan.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://src/sky/Sky1.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/sky/Sky2.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/sky/Sky5.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/core/Seed.tscn" type="PackedScene" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 160, 10 )
@@ -55,3 +56,12 @@ position = Vector2( 163, 154 )
 
 [node name="Pot3" parent="." instance=ExtResource( 3 )]
 position = Vector2( 241, 154 )
+
+[node name="Seed" parent="." instance=ExtResource( 7 )]
+position = Vector2( 59, 152 )
+
+[node name="Seed2" parent="." instance=ExtResource( 7 )]
+position = Vector2( 71, 150 )
+
+[node name="Seed3" parent="." instance=ExtResource( 7 )]
+position = Vector2( 49, 153 )

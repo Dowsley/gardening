@@ -25,4 +25,4 @@ visible = false
 position = Vector2( 18, 11 )
 polygon = PoolVector2Array( -25, -14, -25, -2, -24, -2, -24, 1, -23, 1, -23, 4, -22, 4, -22, 5, -15, 5, -15, 4, -14, 4, -14, 1, -13, 1, -13, -2, -12, -2, -12, -14 )
 
-[connection signal="input_event" from="DraggableArea" to="." method="_on_Draggable_input_event"]
+[connection signal="input_event" from="DraggableArea" to="." method="_on_DraggableArea_input_event"]
