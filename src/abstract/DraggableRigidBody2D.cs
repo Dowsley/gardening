@@ -3,31 +3,49 @@ using System;
 
 public partial class DraggableRigidBody2D : RigidBody2D
 {
-    private bool isDragging = false;
-    private Vector2 previousMousePosition = Vector2.Zero;
-    private Vector2 velocity = Vector2.Zero;
+    private bool _isDragging = false;
+    private Vector2 _previousMousePosition = Vector2.Zero;
+    private Vector2 _velocity = Vector2.Zero;
+
+    public override void _Ready()
+    {
+        AngularDamp = float.MaxValue; // Stops rotation
+        Bounce = 0.0f;                // Avoids unnecessary movement
+
+        Friction = 1.0f;
+        GravityScale = Globals.GravityScale;
+
+        LinearDamp = Globals.AirResistance;
+    }
 
     public override void _Input(InputEvent @event)
     {
-        if (!isDragging) return;
+        if (!_isDragging) return;
 
         if (@event is InputEventMouseButton mouseButtonEvent)
         {
             if (!mouseButtonEvent.Pressed && mouseButtonEvent.ButtonIndex == (int)ButtonList.Left)
             {
-                ReleaseDrag(mouseButtonEvent);
+                _releaseDrag(mouseButtonEvent);
             }
         }
-        else if (@event is InputEventMouseMotion mouseMotionEvent && isDragging)
+        else if (@event is InputEventMouseMotion mouseMotionEvent && _isDragging)
         {
-            DragObject(mouseMotionEvent);
+            _dragObject(mouseMotionEvent);
         }
     }
 
-    private void ReleaseDrag(InputEventMouseButton mouseButtonEvent)
+    /* This stops the object from rotating */
+    public override void _IntegrateForces(Physics2DDirectBodyState state)
     {
-        previousMousePosition = Vector2.Zero;
-        isDragging = false;
+        state.AngularVelocity = 0; // Continuously reset angular velocity
+        var newTransform = new Transform2D(0, state.Transform.origin);
+        state.Transform = newTransform;
+    }
+    private void _releaseDrag(InputEventMouseButton mouseButtonEvent)
+    {
+        _previousMousePosition = Vector2.Zero;
+        _isDragging = false;
         Mode = ModeEnum.Rigid;
 
         var localImpulsePoint = ToLocal(mouseButtonEvent.Position).LimitLength(5);
@@ -37,16 +55,16 @@ public partial class DraggableRigidBody2D : RigidBody2D
             localImpulsePoint.x = -localImpulsePoint.x;
         }
 
-        var impulse = velocity * 20;
+        var impulse = _velocity * 20;
         ApplyImpulse(localImpulsePoint, impulse.LimitLength(1000));
     }
 
-    private void DragObject(InputEventMouseMotion mouseMotionEvent)
+    private void _dragObject(InputEventMouseMotion mouseMotionEvent)
     {
         var previousPosition = Position;
-        Position += mouseMotionEvent.Position - previousMousePosition;
-        velocity = Position - previousPosition;
-        previousMousePosition = mouseMotionEvent.Position;
+        Position += mouseMotionEvent.Position - _previousMousePosition;
+        _velocity = Position - previousPosition;
+        _previousMousePosition = mouseMotionEvent.Position;
     }
 
     private void _on_DraggableArea_input_event(Viewport viewport, InputEvent @event, int shapeIdx)
@@ -54,8 +72,8 @@ public partial class DraggableRigidBody2D : RigidBody2D
         if (@event is InputEventMouseButton mouseButtonEvent && mouseButtonEvent.Pressed && mouseButtonEvent.ButtonIndex == (int)ButtonList.Left)
         {
             GetTree().SetInputAsHandled();
-            previousMousePosition = mouseButtonEvent.Position;
-            isDragging = true;
+            _previousMousePosition = mouseButtonEvent.Position;
+            _isDragging = true;
             Mode = ModeEnum.Static;
         }
     }
