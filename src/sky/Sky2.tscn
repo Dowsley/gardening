@@ -30,24 +30,24 @@ shader_param/Speed = 0.003
 [node name="Sky2" type="Node2D"]
 
 [node name="0" type="Sprite" parent="."]
-position = Vector2( 159.5, 90 )
+position = Vector2( 160.5, 90 )
 scale = Vector2( 0.557292, 0.555556 )
 texture = ExtResource( 1 )
 
 [node name="1" type="Sprite" parent="."]
 material = SubResource( 2 )
-position = Vector2( 159.5, 90 )
+position = Vector2( 160.5, 90 )
 scale = Vector2( 0.557292, 0.555556 )
 texture = ExtResource( 3 )
 
 [node name="2" type="Sprite" parent="."]
 material = SubResource( 3 )
-position = Vector2( 159.5, 90 )
+position = Vector2( 160.5, 90 )
 scale = Vector2( 0.557292, 0.555556 )
 texture = ExtResource( 2 )
 
 [node name="3" type="Sprite" parent="."]
 material = ExtResource( 4 )
-position = Vector2( 159.5, 90 )
+position = Vector2( 160.5, 90 )
 scale = Vector2( 0.557292, 0.555556 )
 texture = ExtResource( 5 )
