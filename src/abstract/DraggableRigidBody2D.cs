@@ -3,7 +3,7 @@ using System;
 
 public partial class DraggableRigidBody2D : RigidBody2D
 {
-    public bool IsDragging => _isDragging;
+    protected bool IsDragging => _isDragging;
 
     private bool _isDragging = false;
     private Vector2 _previousMousePosition = Vector2.Zero;

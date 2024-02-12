@@ -20,10 +20,14 @@ public partial class WateringCan : DraggableRigidBody2D
     {
         _timeSinceLastSpawn += delta;
 
-        if (Input.IsMouseButtonPressed((int)ButtonList.Right) && _timeSinceLastSpawn >= (float)(1.0f / (float)DropsPerSecond))
+        if (IsDragging && Input.IsMouseButtonPressed((int)ButtonList.Right))
         {
-            SpawnDrop();
-            _timeSinceLastSpawn = 0;
+            if (_timeSinceLastSpawn >= (float)(1.0f / (float)DropsPerSecond))
+            {
+                RotationDegrees = -45; // It will automatically be reverted to 0 due to the way DraggableRigidBody2D works.
+                SpawnDrop();
+                _timeSinceLastSpawn = 0;   
+            }
         }
     }
 

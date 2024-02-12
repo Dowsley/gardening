@@ -13,7 +13,6 @@ public class Drop : Node2D
 
     private bool _impacted = false;
 
-
     public override void _Ready()
     {
         _fallingSprite = GetNode<Sprite>("FallingSprite");

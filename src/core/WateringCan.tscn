@@ -1,32 +1,30 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://src/core/WateringCan.cs" type="Script" id=1]
-[ext_resource path="res://assets/flat_cup.png" type="Texture" id=2]
+[ext_resource path="res://assets/watering_can.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 6.5, 9.5 )
+extents = Vector2( 16, 11.5 )
 
 [node name="WateringCan" type="RigidBody2D"]
 script = ExtResource( 1 )
 DropsPerSecond = 10
 
 [node name="Sprite" type="Sprite" parent="."]
-modulate = Color( 0.505882, 0.505882, 0.505882, 1 )
 texture = ExtResource( 2 )
 
 [node name="DraggableArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DraggableArea"]
-visible = false
-position = Vector2( -0.5, 6.5 )
+position = Vector2( 0, 4.5 )
 shape = SubResource( 1 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 visible = false
 position = Vector2( 18, 11 )
-polygon = PoolVector2Array( -25, -14, -25, -2, -24, -2, -24, 1, -23, 1, -23, 4, -22, 4, -22, 5, -15, 5, -15, 4, -14, 4, -14, 1, -13, 1, -13, -2, -12, -2, -12, -14 )
+polygon = PoolVector2Array( -26, 5, -7, 5, -7, 0, -2, 0, -2, -14, -10, -18, -25, -18, -25, -6, -32, -16, -34, -16, -34, -7, -30, -7, -30, -5, -29, -5, -29, 2 )
 
 [node name="DropSpawnPosition" type="Position2D" parent="."]
-position = Vector2( -2, 16 )
+position = Vector2( -16, 0 )
 
 [connection signal="input_event" from="DraggableArea" to="." method="_on_DraggableArea_input_event"]
