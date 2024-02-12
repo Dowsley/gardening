@@ -3,7 +3,9 @@ using System.Collections.Generic;
 
 public partial class Pot : StaticBody2D
 {
-    public int WaterConsumptionPerPhase = 20;
+    [Export] public int WaterConsumptionPerPhase = 20;
+    [Export] public PackedScene GrowthParticleEffectScene = null;
+    
     public bool HasSeed = false;
 
     private Sprite _plantSprite;
@@ -19,7 +21,6 @@ public partial class Pot : StaticBody2D
         GD.Load<Texture>("res://assets/plants/Classic/2.png"),
         GD.Load<Texture>("res://assets/plants/Classic/3.png"),
     };
-
 
     public override void _Ready()
     {
@@ -40,15 +41,27 @@ public partial class Pot : StaticBody2D
 
         if (_waterLevel >= WaterConsumptionPerPhase)
         {
-            GrowToNextPhase();
+            _growToNextPhase();
         }
     }
 
-    public void GrowToNextPhase()
+    private void _growToNextPhase()
     {
         _currPhase += 1;
         _plantSprite.Texture = PlantPhaseTextures[_currPhase];
         _waterLevel -= WaterConsumptionPerPhase;
+
+        /* Particle effect */
+        if (GrowthParticleEffectScene == null)
+        {
+            return;
+        }
+        var particle = GrowthParticleEffectScene.Instance<CPUParticles2D>();
+        particle.Position = _plantSprite.GlobalPosition;
+        particle.Rotation = GlobalRotation;
+        particle.Emitting = true;
+        
+        GetTree().CurrentScene.AddChild(particle);
     }
 
     public void AddWater(int amount)
