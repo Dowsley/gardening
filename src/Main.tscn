@@ -14,53 +14,59 @@ extents = Vector2( 160, 10 )
 [node name="Main" type="Node2D"]
 script = ExtResource( 1 )
 
-[node name="BG" type="Node2D" parent="."]
+[node name="Environment" type="Node2D" parent="."]
+
+[node name="BG" type="Node2D" parent="Environment"]
 __meta__ = {
-"_edit_group_": true
+"_edit_group_": true,
+"_edit_lock_": true
 }
 
-[node name="Sky1" parent="BG" instance=ExtResource( 4 )]
+[node name="Sky1" parent="Environment/BG" instance=ExtResource( 4 )]
 
-[node name="Sky2" parent="BG" instance=ExtResource( 5 )]
+[node name="Sky2" parent="Environment/BG" instance=ExtResource( 5 )]
 visible = false
 
-[node name="Sky5" parent="BG" instance=ExtResource( 6 )]
+[node name="Sky5" parent="Environment/BG" instance=ExtResource( 6 )]
 visible = false
 
-[node name="WateringCan" parent="." instance=ExtResource( 2 )]
-position = Vector2( 125, 142 )
+[node name="Walls" type="StaticBody2D" parent="Environment"]
 
-[node name="Floor" type="StaticBody2D" parent="."]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Environment/Walls"]
+polygon = PoolVector2Array( 0, 160, 0, 0, 320, 0, 320, 160, 317, 160, 317, 3, 3, 3, 3, 143, 3, 160 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+[node name="Floor" type="StaticBody2D" parent="Environment"]
+z_index = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Floor"]
 position = Vector2( 160, 170 )
 shape = SubResource( 1 )
 
-[node name="ColorRect" type="ColorRect" parent="Floor"]
+[node name="ColorRect" type="ColorRect" parent="Environment/Floor"]
 margin_top = 160.0
 margin_right = 320.0
 margin_bottom = 180.0
 color = Color( 0.956863, 0.823529, 0.705882, 1 )
 
-[node name="Walls" type="StaticBody2D" parent="."]
+[node name="Entities" type="Node2D" parent="."]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls"]
-polygon = PoolVector2Array( 0, 160, 0, 0, 320, 0, 320, 160, 317, 160, 317, 3, 3, 3, 3, 143, 3, 160 )
+[node name="WateringCan" parent="Entities" instance=ExtResource( 2 )]
+position = Vector2( 125, 142 )
 
-[node name="Pot1" parent="." instance=ExtResource( 3 )]
-position = Vector2( 91, 154 )
+[node name="Pot1" parent="Entities" instance=ExtResource( 3 )]
+position = Vector2( 89, 154 )
 
-[node name="Pot2" parent="." instance=ExtResource( 3 )]
-position = Vector2( 163, 154 )
+[node name="Pot2" parent="Entities" instance=ExtResource( 3 )]
+position = Vector2( 40, 154 )
 
-[node name="Pot3" parent="." instance=ExtResource( 3 )]
-position = Vector2( 241, 154 )
+[node name="Pot3" parent="Entities" instance=ExtResource( 3 )]
+position = Vector2( 64, 154 )
 
-[node name="Seed" parent="." instance=ExtResource( 7 )]
-position = Vector2( 59, 152 )
+[node name="Seed" parent="Entities" instance=ExtResource( 7 )]
+position = Vector2( 274, 154 )
 
-[node name="Seed2" parent="." instance=ExtResource( 7 )]
-position = Vector2( 71, 150 )
+[node name="Seed2" parent="Entities" instance=ExtResource( 7 )]
+position = Vector2( 228, 153 )
 
-[node name="Seed3" parent="." instance=ExtResource( 7 )]
-position = Vector2( 49, 153 )
+[node name="Seed3" parent="Entities" instance=ExtResource( 7 )]
+position = Vector2( 250, 153 )

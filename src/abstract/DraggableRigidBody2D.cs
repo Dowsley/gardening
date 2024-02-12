@@ -3,6 +3,8 @@ using System;
 
 public partial class DraggableRigidBody2D : RigidBody2D
 {
+    public bool IsDragging => _isDragging;
+
     private bool _isDragging = false;
     private Vector2 _previousMousePosition = Vector2.Zero;
     private Vector2 _velocity = Vector2.Zero;
@@ -24,7 +26,7 @@ public partial class DraggableRigidBody2D : RigidBody2D
 
         if (@event is InputEventMouseButton mouseButtonEvent)
         {
-            if (!mouseButtonEvent.Pressed && mouseButtonEvent.ButtonIndex == (int)ButtonList.Left)
+            if (MouseInputUtil.IsLeftMouseButtonReleased(mouseButtonEvent))
             {
                 _releaseDrag(mouseButtonEvent);
             }
@@ -38,7 +40,7 @@ public partial class DraggableRigidBody2D : RigidBody2D
     /* This stops the object from rotating */
     public override void _IntegrateForces(Physics2DDirectBodyState state)
     {
-        state.AngularVelocity = 0; // Continuously reset angular velocity
+        state.AngularVelocity = 0;
         var newTransform = new Transform2D(0, state.Transform.origin);
         state.Transform = newTransform;
     }
@@ -69,12 +71,15 @@ public partial class DraggableRigidBody2D : RigidBody2D
 
     private void _on_DraggableArea_input_event(Viewport viewport, InputEvent @event, int shapeIdx)
     {
-        if (@event is InputEventMouseButton mouseButtonEvent && mouseButtonEvent.Pressed && mouseButtonEvent.ButtonIndex == (int)ButtonList.Left)
+        if (@event is InputEventMouseButton mouseButtonEvent)
         {
-            GetTree().SetInputAsHandled();
-            _previousMousePosition = mouseButtonEvent.Position;
-            _isDragging = true;
-            Mode = ModeEnum.Static;
+            if (MouseInputUtil.IsLeftMouseButtonPressed(mouseButtonEvent))
+            {
+                GetTree().SetInputAsHandled();
+                _previousMousePosition = mouseButtonEvent.Position;
+                _isDragging = true;
+                Mode = ModeEnum.Static;   
+            }
         }
     }
 }

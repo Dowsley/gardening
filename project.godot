@@ -17,6 +17,7 @@ config/icon="res://assets/pots/ClayPot/ClayPot.png"
 [autoload]
 
 Globals="*res://src/utils/Globals.cs"
+MouseInputUtil="*res://src/utils/MouseInputUtil.cs"
 
 [display]
 

@@ -8,6 +8,7 @@ extents = Vector2( 6.5, 9.5 )
 
 [node name="WateringCan" type="RigidBody2D"]
 script = ExtResource( 1 )
+DropsPerSecond = 10
 
 [node name="Sprite" type="Sprite" parent="."]
 modulate = Color( 0.505882, 0.505882, 0.505882, 1 )
@@ -24,5 +25,8 @@ shape = SubResource( 1 )
 visible = false
 position = Vector2( 18, 11 )
 polygon = PoolVector2Array( -25, -14, -25, -2, -24, -2, -24, 1, -23, 1, -23, 4, -22, 4, -22, 5, -15, 5, -15, 4, -14, 4, -14, 1, -13, 1, -13, -2, -12, -2, -12, -14 )
+
+[node name="DropSpawnPosition" type="Position2D" parent="."]
+position = Vector2( -2, 16 )
 
 [connection signal="input_event" from="DraggableArea" to="." method="_on_DraggableArea_input_event"]

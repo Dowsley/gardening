@@ -9,7 +9,7 @@ public partial class Main : Node2D
     
     public override void _Ready()
     {
-        foreach (var child in GetNode("BG").GetChildren())
+        foreach (var child in GetNode("Environment/BG").GetChildren())
         {
             _availableSkyBackgrounds.Add((Node2D)child);
         }
