@@ -45,6 +45,13 @@ public class Drop : Node2D
             var timer = GetTree().CreateTimer(TimeOfExistenceAfterImpact);
             timer.Connect("timeout", this, nameof(OnTimerTimeout));
         }
+        if (body is Pot pot)
+        {
+            pot.AddWater(1);
+            
+            _impacted = true;
+            QueueFree();
+        }
     }
 
     private void OnTimerTimeout()

@@ -21,6 +21,10 @@ public partial class Main : Node2D
         {
             SetNextSkyBackground();
         }
+        if (Input.IsActionJustPressed("show_labels"))
+        {
+            Globals.Instance.WaterLevelLabelVisible = !Globals.Instance.WaterLevelLabelVisible;
+        }
     }
 
     private void SetNextSkyBackground()
