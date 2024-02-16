@@ -1,13 +1,13 @@
 using Godot;
 using System;
 
-public class Drop : Node2D
+public partial class Drop : Node2D
 {
     [Export] public float TimeOfExistenceAfterImpact = 0.2f;
-    
+
     private Sprite _fallingSprite;
     private Sprite _impactSprite;
-    
+
     private Vector2 _velocity = Vector2.Zero;
     private float _gravity;
 
@@ -17,7 +17,7 @@ public class Drop : Node2D
     {
         _fallingSprite = GetNode<Sprite>("FallingSprite");
         _impactSprite = GetNode<Sprite>("ImpactSprite");
-        
+
         _gravity = Globals.GravityScale; // Ensure this is defined somewhere in your project
         _velocity.y += _gravity;
     }
@@ -30,7 +30,7 @@ public class Drop : Node2D
             Position += _velocity * delta;
         }
     }
-    
+
     private void _on_CollisionArea_body_entered(Node body)
     {
         if (body.Name == "Floor")
@@ -48,7 +48,7 @@ public class Drop : Node2D
         if (body is Pot pot)
         {
             pot.AddWater(0.01f);
-            
+
             _impacted = true;
             QueueFree();
         }
