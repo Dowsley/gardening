@@ -47,7 +47,7 @@ public class Drop : Node2D
         }
         if (body is Pot pot)
         {
-            pot.AddWater(1);
+            pot.AddWater(0.01f);
             
             _impacted = true;
             QueueFree();
