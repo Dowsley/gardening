@@ -60,7 +60,7 @@ public partial class Pot : StaticBody2D
 		_waterLevel = Math.Min(_waterLevel, 1.0f); // Ensuring water level does not exceed 100%
 
 		var stage = _waterLevelToStage();
-		_waterLevelMask.Position = new Vector2(_waterLevelMaskPivot.x, _waterLevelMaskPivot.y - (stage * 2)); // Each level is 2 pixels
+		_waterLevelMask.Position = new Vector2(_waterLevelMaskPivot.x, _waterLevelMaskPivot.y - (stage * 4)); // Each level is 2 pixels
 	}
 
 	public void Seed()

@@ -68,13 +68,13 @@ color = Color( 0.956863, 0.823529, 0.705882, 1 )
 position = Vector2( 172, 143 )
 
 [node name="Pot1" parent="Entities" instance=ExtResource( 3 )]
-position = Vector2( 119, 144 )
+position = Vector2( 119, 138 )
 
 [node name="Pot2" parent="Entities" instance=ExtResource( 3 )]
-position = Vector2( 42, 144 )
+position = Vector2( 42, 138 )
 
 [node name="Pot3" parent="Entities" instance=ExtResource( 3 )]
-position = Vector2( 81, 144 )
+position = Vector2( 81, 138 )
 
 [node name="Seed" parent="Entities" instance=ExtResource( 7 )]
 position = Vector2( 274, 154 )
