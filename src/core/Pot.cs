@@ -22,9 +22,11 @@ public partial class Pot : StaticBody2D
 	private static readonly List<Texture> PlantPhaseTextures = new List<Texture>
 	{
 		null,
-		GD.Load<Texture>("res://assets/plants/Classic/1.png"),
-		GD.Load<Texture>("res://assets/plants/Classic/2.png"),
-		GD.Load<Texture>("res://assets/plants/Classic/3.png"),
+		GD.Load<Texture>("res://assets/plants/Probe/probe_1.png"),
+		GD.Load<Texture>("res://assets/plants/Probe/probe_2.png"),
+		GD.Load<Texture>("res://assets/plants/Probe/probe_3.png"),
+		GD.Load<Texture>("res://assets/plants/Probe/probe_4.png"),
+		GD.Load<Texture>("res://assets/plants/Probe/probe_5.png"),
 	};
 
 	public override void _Ready()
