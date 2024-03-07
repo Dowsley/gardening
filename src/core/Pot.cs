@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public partial class Pot : StaticBody2D
 {
-	private const int TotalWaterLevelStages = 5;
+	private const int TotalWaterLevelStages = 15;
 
 	[Export] public float WaterConsumptionPerPhase = 0.2f;
 	[Export] public PackedScene GrowthParticleEffectScene = null;
@@ -41,6 +41,8 @@ public partial class Pot : StaticBody2D
 
 	public override void _Process(float delta)
 	{
+		var stage = _waterLevelToStage();
+		_waterLevelMask.Position = new Vector2(_waterLevelMaskPivot.x, _waterLevelMaskPivot.y - (stage * 1));
 		_waterLevelLabel.Visible = Globals.Instance.WaterLevelLabelVisible;
 		_waterLevelLabel.Text = (_getFillPercentage()).ToString();
 		if (!HasSeed || _currPlantPhase >= PlantPhaseTextures.Count - 1)
@@ -58,9 +60,6 @@ public partial class Pot : StaticBody2D
 	{
 		_waterLevel += amount;
 		_waterLevel = Math.Min(_waterLevel, 1.0f); // Ensuring water level does not exceed 100%
-
-		var stage = _waterLevelToStage();
-		_waterLevelMask.Position = new Vector2(_waterLevelMaskPivot.x, _waterLevelMaskPivot.y - (stage * 4)); // Each level is 2 pixels
 	}
 
 	public void Seed()
