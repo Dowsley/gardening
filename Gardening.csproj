@@ -5,4 +5,7 @@
   <ItemGroup>
     <Compile Remove="src\abstract\Class.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="src\core\Verlet.tscn" />
+  </ItemGroup>
 </Project>
