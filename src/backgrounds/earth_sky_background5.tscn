@@ -1,0 +1,62 @@
+[gd_scene load_steps=9 format=3 uid="uid://c7y2j23e3srd0"]
+
+[ext_resource type="Texture2D" uid="uid://bndlola4p1sqx" path="res://assets/sprites/backgrounds/clouds/clouds5/1.png" id="1_8sia5"]
+[ext_resource type="Texture2D" uid="uid://d2tkxj0a7e6qp" path="res://assets/sprites/backgrounds/clouds/clouds5/2.png" id="2_4xn1k"]
+[ext_resource type="Texture2D" uid="uid://boifsuwmuct7v" path="res://assets/sprites/backgrounds/clouds/clouds5/3.png" id="3_kcsw5"]
+[ext_resource type="Texture2D" uid="uid://c0tcukotmo7t2" path="res://assets/sprites/backgrounds/clouds/clouds5/4.png" id="4_1ukht"]
+[ext_resource type="Texture2D" uid="uid://x2l8vaiex4p1" path="res://assets/sprites/backgrounds/clouds/clouds5/5.png" id="5_qbunm"]
+
+[sub_resource type="Shader" id="1"]
+code = "shader_type canvas_item;
+
+uniform vec2 Direction = vec2(1.0, 0.0);
+uniform float Speed = 0.005;
+
+void fragment()
+{
+	COLOR = texture(TEXTURE, UV + (Direction * TIME * Speed));
+}"
+
+[sub_resource type="ShaderMaterial" id="6"]
+shader = SubResource("1")
+shader_parameter/Direction = Vector2(1, 0)
+shader_parameter/Speed = 0.002
+
+[sub_resource type="ShaderMaterial" id="5"]
+shader = SubResource("1")
+shader_parameter/Direction = Vector2(1, 0)
+shader_parameter/Speed = 0.005
+
+[node name="EarthSkyBackground5" type="Node2D"]
+
+[node name="0" type="Sprite2D" parent="."]
+texture_repeat = 2
+position = Vector2(160.5, 90)
+scale = Vector2(0.557292, 0.555556)
+texture = ExtResource("1_8sia5")
+
+[node name="1" type="Sprite2D" parent="."]
+texture_repeat = 2
+position = Vector2(160.5, 90)
+scale = Vector2(0.557292, 0.555556)
+texture = ExtResource("2_4xn1k")
+
+[node name="2" type="Sprite2D" parent="."]
+texture_repeat = 2
+position = Vector2(160.5, 90)
+scale = Vector2(0.557292, 0.555556)
+texture = ExtResource("3_kcsw5")
+
+[node name="3" type="Sprite2D" parent="."]
+texture_repeat = 2
+material = SubResource("6")
+position = Vector2(160.5, 90)
+scale = Vector2(0.557292, 0.555556)
+texture = ExtResource("4_1ukht")
+
+[node name="4" type="Sprite2D" parent="."]
+texture_repeat = 2
+material = SubResource("5")
+position = Vector2(160.5, 90)
+scale = Vector2(0.557292, 0.555556)
+texture = ExtResource("5_qbunm")

@@ -17,8 +17,8 @@ config/icon="res://assets/sprites/pots/clay_pot.png"
 
 [autoload]
 
-Globals="*res://src/utils/globals.gd"
-MouseInputUtil="*res://src/utils/mouse_input_util.gd"
+Globals="*res://src/autoload/globals.gd"
+MouseInputUtil="*res://src/autoload/mouse_input_util.gd"
 
 [display]
 

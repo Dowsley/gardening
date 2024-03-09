@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://dkpwuux8qjp7k"]
+
+[sub_resource type="Shader" id="Shader_3v3qx"]
+code = "// NOTE: Shader automatically converted from Godot Engine 4.2.1.stable's CanvasItemMaterial.
+
+shader_type canvas_item;
+render_mode blend_add;
+"
+
+[resource]
+shader = SubResource("Shader_3v3qx")

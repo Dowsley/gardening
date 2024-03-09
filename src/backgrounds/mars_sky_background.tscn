@@ -1,0 +1,205 @@
+[gd_scene load_steps=44 format=3 uid="uid://dygruq0jyv6sw"]
+
+[ext_resource type="Script" path="res://src/backgrounds/mars_sky_background.gd" id="1_c60cy"]
+[ext_resource type="Texture2D" uid="uid://cpnhpgf8ocpnf" path="res://assets/sprites/backgrounds/milky_way_mountains/stars/transparent/square(480x480)/0001.png" id="2_n35ut"]
+[ext_resource type="Texture2D" uid="uid://dxovym3n5lbmn" path="res://assets/sprites/backgrounds/milky_way_mountains/stars/transparent/square(480x480)/0002.png" id="3_laosr"]
+[ext_resource type="Texture2D" uid="uid://cbxaugjyx1gyv" path="res://assets/sprites/backgrounds/milky_way_mountains/stars/transparent/square(480x480)/0003.png" id="4_tr2tu"]
+[ext_resource type="Texture2D" uid="uid://caluyw2cqhqus" path="res://assets/sprites/backgrounds/milky_way_mountains/stars/transparent/square(480x480)/0004.png" id="5_o1d7u"]
+[ext_resource type="Texture2D" uid="uid://cc5q6n8xq3oxa" path="res://assets/sprites/backgrounds/milky_way_mountains/stars/transparent/square(480x480)/0005.png" id="6_fitmj"]
+[ext_resource type="Texture2D" uid="uid://c65qldmeaidwt" path="res://assets/sprites/backgrounds/milky_way_mountains/stars/transparent/square(480x480)/0006.png" id="7_ly15d"]
+[ext_resource type="Texture2D" uid="uid://fipikdkjf3m5" path="res://assets/sprites/backgrounds/milky_way_mountains/stars/transparent/square(480x480)/0007.png" id="8_gvb4w"]
+[ext_resource type="Texture2D" uid="uid://bbia1dxbvt3ga" path="res://assets/sprites/backgrounds/milky_way_mountains/stars/transparent/square(480x480)/0008.png" id="9_vfybu"]
+[ext_resource type="Texture2D" uid="uid://b48pwxjep5giy" path="res://assets/sprites/backgrounds/milky_way_mountains/stars/transparent/square(480x480)/0009.png" id="10_45iwk"]
+[ext_resource type="Texture2D" uid="uid://d0ha6m5ltlr5c" path="res://assets/sprites/backgrounds/milky_way_mountains/stars/transparent/square(480x480)/0010.png" id="11_2wktb"]
+[ext_resource type="Texture2D" uid="uid://dm3enpreqc0j5" path="res://assets/sprites/backgrounds/milky_way_mountains/stars/transparent/square(480x480)/0011.png" id="12_fyyo8"]
+[ext_resource type="Texture2D" uid="uid://den4jhxr6hfyw" path="res://assets/sprites/backgrounds/milky_way_mountains/stars/transparent/square(480x480)/0012.png" id="13_2a8wo"]
+[ext_resource type="Texture2D" uid="uid://bl0mob1kvne0" path="res://assets/sprites/backgrounds/milky_way_mountains/stars/transparent/square(480x480)/0013.png" id="14_emehs"]
+[ext_resource type="Texture2D" uid="uid://cb44mrmj57h8u" path="res://assets/sprites/backgrounds/milky_way_mountains/stars/transparent/square(480x480)/0014.png" id="15_6fhcs"]
+[ext_resource type="Texture2D" uid="uid://bxu0glvrrf8dg" path="res://assets/sprites/backgrounds/milky_way_mountains/stars/transparent/square(480x480)/0015.png" id="16_8tyld"]
+[ext_resource type="Texture2D" uid="uid://c42ow6ow85and" path="res://assets/sprites/backgrounds/milky_way_mountains/stars/transparent/square(480x480)/0016.png" id="17_k176h"]
+[ext_resource type="Texture2D" uid="uid://cist02wiavfas" path="res://assets/sprites/backgrounds/milky_way_mountains/stars/transparent/square(480x480)/0017.png" id="18_hlfot"]
+[ext_resource type="Texture2D" uid="uid://hntk4aduqbyo" path="res://assets/sprites/backgrounds/milky_way_mountains/stars/transparent/square(480x480)/0018.png" id="19_871up"]
+[ext_resource type="Texture2D" uid="uid://dogrcvwjpulbr" path="res://assets/sprites/backgrounds/milky_way_mountains/stars/transparent/square(480x480)/0019.png" id="20_4f0mm"]
+[ext_resource type="Texture2D" uid="uid://dwfl33ntm3cf2" path="res://assets/sprites/backgrounds/milky_way_mountains/stars/transparent/square(480x480)/0020.png" id="21_mkmou"]
+[ext_resource type="Texture2D" uid="uid://cprnue82526d0" path="res://assets/sprites/backgrounds/milky_way_mountains/moutains/transparent/1.png" id="22_nupau"]
+[ext_resource type="Texture2D" uid="uid://dkt3xopohfgv5" path="res://assets/sprites/backgrounds/milky_way_mountains/moutains/transparent/2.png" id="23_aerau"]
+[ext_resource type="Texture2D" uid="uid://8tke6ep2kv8y" path="res://assets/sprites/backgrounds/milky_way_mountains/moutains/transparent/3.png" id="24_s6v3n"]
+[ext_resource type="Texture2D" uid="uid://hj1pulb24evd" path="res://assets/sprites/backgrounds/milky_way_mountains/moutains/transparent/4.png" id="25_f37s2"]
+[ext_resource type="Texture2D" uid="uid://b5u667w873gyf" path="res://assets/sprites/backgrounds/milky_way_mountains/moutains/transparent/5.png" id="26_kvpph"]
+[ext_resource type="Texture2D" uid="uid://bbx30eeocqpf1" path="res://assets/sprites/backgrounds/milky_way_mountains/moutains/transparent/6.png" id="27_gyt5k"]
+[ext_resource type="Texture2D" uid="uid://b4orbqabpe2lw" path="res://assets/sprites/backgrounds/milky_way_mountains/moutains/transparent/7.png" id="28_dddhh"]
+[ext_resource type="Texture2D" uid="uid://dfige386u4jth" path="res://assets/sprites/backgrounds/milky_way_mountains/moutains/transparent/8.png" id="29_nnxmu"]
+[ext_resource type="Texture2D" uid="uid://c0nxd7dpyd3fq" path="res://assets/sprites/backgrounds/milky_way_mountains/moutains/transparent/9.png" id="30_bfm3p"]
+[ext_resource type="Texture2D" uid="uid://cikky3mm8anxo" path="res://assets/sprites/backgrounds/milky_way_mountains/moutains/transparent/10.png" id="31_htswc"]
+[ext_resource type="Texture2D" uid="uid://ccf7c2pjwje4p" path="res://assets/sprites/backgrounds/milky_way_mountains/moutains/transparent/11.png" id="32_x1yb0"]
+[ext_resource type="Texture2D" uid="uid://c6ncqh8wp1koj" path="res://assets/sprites/backgrounds/milky_way_mountains/moutains/transparent/12.png" id="33_krnb0"]
+[ext_resource type="Texture2D" uid="uid://cf5p8noykh1kt" path="res://assets/sprites/backgrounds/milky_way_mountains/moutains/transparent/13.png" id="34_3cw0f"]
+[ext_resource type="Texture2D" uid="uid://x7pj7cnvna0v" path="res://assets/sprites/backgrounds/milky_way_mountains/moutains/transparent/14.png" id="35_y6sre"]
+[ext_resource type="Texture2D" uid="uid://dftv0gfri23wx" path="res://assets/sprites/backgrounds/milky_way_mountains/moutains/transparent/15.png" id="36_1myr7"]
+[ext_resource type="Texture2D" uid="uid://cpeym24id2ea4" path="res://assets/sprites/backgrounds/milky_way_mountains/moutains/transparent/16.png" id="37_afdxk"]
+[ext_resource type="Texture2D" uid="uid://f1u5mxgvdut5" path="res://assets/sprites/backgrounds/milky_way_mountains/moutains/transparent/17.png" id="38_xg332"]
+[ext_resource type="Texture2D" uid="uid://be0nutdyity7r" path="res://assets/sprites/backgrounds/milky_way_mountains/moutains/transparent/18.png" id="39_p21xk"]
+[ext_resource type="Texture2D" uid="uid://cwv5fwfumuwu0" path="res://assets/sprites/backgrounds/milky_way_mountains/moutains/transparent/19.png" id="40_d24sf"]
+[ext_resource type="Texture2D" uid="uid://cnxxp5i1k6cyy" path="res://assets/sprites/backgrounds/milky_way_mountains/moutains/transparent/20.png" id="41_f4c1n"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_71826"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_n35ut")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_laosr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_tr2tu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_o1d7u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_fitmj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ly15d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_gvb4w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_vfybu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_45iwk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_2wktb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_fyyo8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_2a8wo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_emehs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_6fhcs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_8tyld")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_k176h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_hlfot")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_871up")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_4f0mm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_mkmou")
+}],
+"loop": false,
+"name": &"default",
+"speed": 1.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qh5af"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("22_nupau")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_aerau")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_s6v3n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_f37s2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_kvpph")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_gyt5k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_dddhh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_nnxmu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_bfm3p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_htswc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_x1yb0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_krnb0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_3cw0f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_y6sre")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_1myr7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_afdxk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_xg332")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_p21xk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_d24sf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("41_f4c1n")
+}],
+"loop": false,
+"name": &"default",
+"speed": 1.0
+}]
+
+[node name="MarsSkyBackground" type="Node2D"]
+z_index = -4096
+script = ExtResource("1_c60cy")
+
+[node name="BG" type="ColorRect" parent="."]
+offset_right = 320.0
+offset_bottom = 180.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Stars" type="AnimatedSprite2D" parent="."]
+position = Vector2(240, 37)
+sprite_frames = SubResource("SpriteFrames_71826")
+frame = 19
+frame_progress = 1.0
+
+[node name="Mountains" type="AnimatedSprite2D" parent="."]
+position = Vector2(858, 137)
+scale = Vector2(0.8, 0.8)
+sprite_frames = SubResource("SpriteFrames_qh5af")
+frame = 19
+frame_progress = 1.0
+
+[connection signal="animation_finished" from="Stars" to="." method="_on_animation_finished"]
+[connection signal="animation_finished" from="Mountains" to="." method="_on_animation_finished"]

@@ -1,0 +1,57 @@
+[gd_scene load_steps=9 format=3 uid="uid://cakkyxg3w6ia5"]
+
+[ext_resource type="Texture2D" uid="uid://16pbqhjjw7kt" path="res://assets/sprites/backgrounds/clouds/clouds2/1.png" id="1_m2c7d"]
+[ext_resource type="Texture2D" uid="uid://dlqcg0lp80gg8" path="res://assets/sprites/backgrounds/clouds/clouds2/2.png" id="2_3hmqh"]
+[ext_resource type="Texture2D" uid="uid://3l60dhe4bvhe" path="res://assets/sprites/backgrounds/clouds/clouds2/3.png" id="3_1ja76"]
+[ext_resource type="Material" uid="uid://tnc0iba55m72" path="res://src/backgrounds/scrolling_texture_shader.tres" id="4_4n0ab"]
+[ext_resource type="Texture2D" uid="uid://dnasefvbrsc5x" path="res://assets/sprites/backgrounds/clouds/clouds2/4.png" id="5_qqryx"]
+
+[sub_resource type="Shader" id="1"]
+code = "shader_type canvas_item;
+
+uniform vec2 Direction = vec2(1.0, 0.0);
+uniform float Speed = 0.005;
+
+void fragment()
+{
+	COLOR = texture(TEXTURE, UV + (Direction * TIME * Speed));
+}"
+
+[sub_resource type="ShaderMaterial" id="2"]
+shader = SubResource("1")
+shader_parameter/Direction = Vector2(1, 0)
+shader_parameter/Speed = 0.003
+
+[sub_resource type="ShaderMaterial" id="3"]
+shader = SubResource("1")
+shader_parameter/Direction = Vector2(1, 0)
+shader_parameter/Speed = 0.003
+
+[node name="EarthSkyBackground2" type="Node2D"]
+
+[node name="0" type="Sprite2D" parent="."]
+texture_repeat = 2
+position = Vector2(160.5, 90)
+scale = Vector2(0.557292, 0.555556)
+texture = ExtResource("1_m2c7d")
+
+[node name="1" type="Sprite2D" parent="."]
+texture_repeat = 2
+material = SubResource("2")
+position = Vector2(160.5, 90)
+scale = Vector2(0.557292, 0.555556)
+texture = ExtResource("2_3hmqh")
+
+[node name="2" type="Sprite2D" parent="."]
+texture_repeat = 2
+material = SubResource("3")
+position = Vector2(160.5, 90)
+scale = Vector2(0.557292, 0.555556)
+texture = ExtResource("3_1ja76")
+
+[node name="3" type="Sprite2D" parent="."]
+texture_repeat = 2
+material = ExtResource("4_4n0ab")
+position = Vector2(160.5, 90)
+scale = Vector2(0.557292, 0.555556)
+texture = ExtResource("5_qqryx")

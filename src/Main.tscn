@@ -1,15 +1,67 @@
-[gd_scene load_steps=10 format=3 uid="uid://bmf5cron5xl60"]
+[gd_scene load_steps=14 format=3 uid="uid://bmf5cron5xl60"]
 
 [ext_resource type="Script" path="res://src/main.gd" id="1_xsxb4"]
-[ext_resource type="PackedScene" uid="uid://daomh61awu8ns" path="res://src/sky/sky1.tscn" id="2_1i2os"]
-[ext_resource type="PackedScene" uid="uid://cakkyxg3w6ia5" path="res://src/sky/sky2.tscn" id="3_lmxwy"]
-[ext_resource type="PackedScene" uid="uid://c7y2j23e3srd0" path="res://src/sky/sky5.tscn" id="4_5jkuq"]
+[ext_resource type="PackedScene" uid="uid://dygruq0jyv6sw" path="res://src/backgrounds/mars_sky_background.tscn" id="2_76ox7"]
 [ext_resource type="PackedScene" uid="uid://c228mdi42hmnk" path="res://src/core/watering_can.tscn" id="5_igsd8"]
+[ext_resource type="Texture2D" uid="uid://c3gchiriah2v6" path="res://assets/sprites/window.png" id="6_8ynri"]
 [ext_resource type="PackedScene" uid="uid://dsobgv84o1vkp" path="res://src/core/pot.tscn" id="6_c8hs0"]
 [ext_resource type="PackedScene" uid="uid://km41nkcrprpx" path="res://src/core/seed.tscn" id="7_g6j2v"]
+[ext_resource type="Texture2D" uid="uid://degh23abxqd3h" path="res://assets/sprites/blind.png" id="7_pkq8f"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(320, 20)
+
+[sub_resource type="Animation" id="Animation_ccoat"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Blind:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(160, 77)]
+}
+
+[sub_resource type="Animation" id="Animation_ilp6q"]
+resource_name = "close_blind"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Blind:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(160, -17), Vector2(160, 77)]
+}
+
+[sub_resource type="Animation" id="Animation_3xuo3"]
+resource_name = "open_blind"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Blind:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(160, 77), Vector2(160, -17)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yinal"]
+_data = {
+"RESET": SubResource("Animation_ccoat"),
+"close_blind": SubResource("Animation_ilp6q"),
+"open_blind": SubResource("Animation_3xuo3")
+}
 
 [sub_resource type="Environment" id="2"]
 background_mode = 4
@@ -26,24 +78,13 @@ script = ExtResource("1_xsxb4")
 
 [node name="Environment" type="Node2D" parent="."]
 
-[node name="BG" type="Node2D" parent="Environment"]
-z_index = -10
-
-[node name="Sky1" parent="Environment/BG" instance=ExtResource("2_1i2os")]
-
-[node name="Sky2" parent="Environment/BG" instance=ExtResource("3_lmxwy")]
-visible = false
-
-[node name="Sky5" parent="Environment/BG" instance=ExtResource("4_5jkuq")]
-visible = false
-
 [node name="Walls" type="StaticBody2D" parent="Environment"]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Environment/Walls"]
 polygon = PackedVector2Array(0, 160, 0, 0, 321, 0, 321, 160, 318, 160, 318, 3, 3, 3, 3, 143, 3, 160)
 
 [node name="Floor" type="StaticBody2D" parent="Environment"]
-z_index = -1
+z_index = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Floor"]
 position = Vector2(160, 170)
@@ -54,7 +95,33 @@ offset_top = 160.0
 offset_right = 321.0
 offset_bottom = 180.0
 mouse_filter = 2
-color = Color(0.956863, 0.823529, 0.705882, 1)
+color = Color(0.690196, 0.690196, 0.690196, 1)
+
+[node name="Blind" type="Sprite2D" parent="Environment"]
+z_index = -100
+position = Vector2(160, 77)
+texture = ExtResource("7_pkq8f")
+
+[node name="Window" type="Sprite2D" parent="Environment"]
+z_index = -100
+position = Vector2(160, 77)
+texture = ExtResource("6_8ynri")
+
+[node name="BlindButton" type="ColorRect" parent="Environment"]
+offset_left = 283.0
+offset_top = 33.0
+offset_right = 287.0
+offset_bottom = 43.0
+color = Color(1, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="MarsSkyBackground" parent="Environment" instance=ExtResource("2_76ox7")]
+position = Vector2(0, -21)
+
+[node name="BlindAnimationPlayer" type="AnimationPlayer" parent="Environment"]
+libraries = {
+"": SubResource("AnimationLibrary_yinal")
+}
 
 [node name="Entities" type="Node2D" parent="."]
 
@@ -81,3 +148,5 @@ position = Vector2(247, 148)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("2")
+
+[connection signal="gui_input" from="Environment/BlindButton" to="." method="_on_blind_button_gui_input"]

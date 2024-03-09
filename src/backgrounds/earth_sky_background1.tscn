@@ -1,0 +1,55 @@
+[gd_scene load_steps=8 format=3 uid="uid://daomh61awu8ns"]
+
+[ext_resource type="Texture2D" uid="uid://bygpxlqgcrvmu" path="res://assets/sprites/backgrounds/clouds/clouds1/1.png" id="1_asxot"]
+[ext_resource type="Texture2D" uid="uid://c6kanxbxhk5nr" path="res://assets/sprites/backgrounds/clouds/clouds1/2.png" id="2_eo72p"]
+[ext_resource type="Texture2D" uid="uid://cb4ywpokcf68m" path="res://assets/sprites/backgrounds/clouds/clouds1/3.png" id="3_aot8k"]
+[ext_resource type="Texture2D" uid="uid://dn356drm1u6jx" path="res://assets/sprites/backgrounds/clouds/clouds1/4.png" id="4_i7rty"]
+
+[sub_resource type="Shader" id="1"]
+code = "shader_type canvas_item;
+
+uniform vec2 Direction = vec2(1.0, 0.0);
+uniform float Speed = 0.005;
+
+void fragment()
+{
+	COLOR = texture(TEXTURE, UV + (Direction * TIME * Speed));
+}"
+
+[sub_resource type="ShaderMaterial" id="2"]
+shader = SubResource("1")
+shader_parameter/Direction = Vector2(1, 0)
+shader_parameter/Speed = 0.002
+
+[sub_resource type="ShaderMaterial" id="3"]
+shader = SubResource("1")
+shader_parameter/Direction = Vector2(1, 0)
+shader_parameter/Speed = 0.005
+
+[node name="EarthSkyBackground1" type="Node2D"]
+
+[node name="0" type="Sprite2D" parent="."]
+texture_repeat = 2
+position = Vector2(160.5, 90)
+scale = Vector2(0.557292, 0.555556)
+texture = ExtResource("1_asxot")
+
+[node name="1" type="Sprite2D" parent="."]
+texture_repeat = 2
+material = SubResource("2")
+position = Vector2(160.5, 90)
+scale = Vector2(0.557292, 0.555556)
+texture = ExtResource("2_eo72p")
+
+[node name="2" type="Sprite2D" parent="."]
+texture_repeat = 2
+position = Vector2(160.5, 90)
+scale = Vector2(0.557292, 0.555556)
+texture = ExtResource("3_aot8k")
+
+[node name="3" type="Sprite2D" parent="."]
+texture_repeat = 2
+material = SubResource("3")
+position = Vector2(160.5, 90)
+scale = Vector2(0.557292, 0.555556)
+texture = ExtResource("4_i7rty")
