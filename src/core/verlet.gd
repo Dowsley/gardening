@@ -1,6 +1,7 @@
 extends Node2D
 
 
+@export var mouse_debug := false
 @export var rope_length := 30.0
 @export var constraint := 1.0 # Distance between points
 @export var gravity := Vector2(0,9.8)
@@ -39,22 +40,9 @@ func init_position() -> void:
 	position = Vector2.ZERO
 
 
-func _unhandled_input(event:InputEvent)->void:
-	if event is InputEventMouseMotion:
-		if Input.is_action_pressed("click"):
-			set_start(get_global_mouse_position())
-		if Input.is_action_pressed("right_click"):
-			set_last(get_global_mouse_position())
-	elif event is InputEventMouseButton && event.is_pressed():
-		if event.button_index == 1:
-			set_start(get_global_mouse_position())
-		elif event.button_index == 2:
-			set_last(get_global_mouse_position())
-
-
 func _process(delta)->void:
 	update_points(delta)
-	update_constrain()
+	update_constraint()
 	
 	#update_constrain()	#Repeat to get tighter rope
 	#update_constrain()
@@ -67,10 +55,36 @@ func set_start(p: Vector2) -> void:
 	pos[0] = p
 	prev_pos[0] = p
 
+func _unhandled_input(event:InputEvent)->void:
+	if mouse_debug:
+		if event is InputEventMouseMotion:
+			if Input.is_action_pressed("click"):
+				set_start(get_global_mouse_position())
+			if Input.is_action_pressed("right_click"):
+				set_last(get_global_mouse_position())
+		elif event is InputEventMouseButton && event.is_pressed():
+			if event.button_index == 1:
+				set_start(get_global_mouse_position())
+			elif event.button_index == 2:
+				set_last(get_global_mouse_position())
 
-func set_last(p:Vector2) -> void:
-	pos[point_count - 1 ] = p
-	prev_pos[point_count - 1] = p
+
+
+func set_last(p: Vector2) -> void:
+	var end_point
+	var move_amount
+	if not mouse_debug:
+		end_point = pos[point_count - 1]
+		var move_direction = (p - end_point).normalized()
+		move_amount = move_direction * 0.4 # Adjust speed as necessary
+	
+	# Move towards the target position, but stop if we overshoot
+	if not mouse_debug and end_point.distance_to(p) > move_amount.length():
+		pos[point_count - 1] += move_amount
+		prev_pos[point_count - 1] = pos[point_count - 1]
+	else:
+		pos[point_count - 1] = p
+		prev_pos[point_count - 1] = p
 
 
 func update_points(delta) -> void:
@@ -82,7 +96,7 @@ func update_points(delta) -> void:
 			pos[i] += velocity + (gravity * delta)
 
 
-func update_constrain() -> void:
+func update_constraint() -> void:
 	for i in range(point_count):
 		if i == point_count - 1:
 			return

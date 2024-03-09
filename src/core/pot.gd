@@ -9,17 +9,25 @@ const PLANT_PHASE_TEXTURES := [
 	preload("res://assets/sprites/plants/probe/1.png"),
 	preload("res://assets/sprites/plants/probe/2.png"),
 	preload("res://assets/sprites/plants/probe/3.png"),
-	preload("res://assets/sprites/plants/probe/4.png"),
+	preload("res://assets/sprites/plants/probe/4_alt.png"),
 ]
 
 @export var water_consumption_per_phase: float = 0.2
 @export var growth_particle_effect_scene: PackedScene = null
+@export var tentacle_activation_radius: int = 35
+
+@onready var plant_sprite : Sprite2D = $PlantSprite
+@onready var water_level_label: Label = $WaterLevelLabel
+@onready var water_level_mask: Light2D = $WaterLevelMask as Light2D
+@onready var tentacle1: Node2D = $Tentacle1 as Node2D
+@onready var tentacle2: Node2D = $Tentacle2 as Node2D
+@onready var tentacle_origin: Vector2 = $TentacleOriginMarker.position
+@onready var tentacle_rest1: Vector2 = $Tentacle1RestMarker.position
+@onready var tentacle_rest2: Vector2 = $Tentacle2RestMarker.position
+
+var is_mouse_near_tentacle_origin := false
 
 var has_seed := false
-@onready var plant_sprite : Sprite2D = get_node("PlantSprite")
-@onready var water_level_label: Label = get_node("WaterLevelLabel")
-@onready var water_level_mask: Light2D = get_node("WaterLevelMask") as Light2D
-
 var water_level_mask_pivot: Vector2
 var curr_plant_phase := 0
 var water_level := 0.0
@@ -29,9 +37,27 @@ func _ready() -> void:
 	plant_sprite.texture = null
 	water_level_mask_pivot = water_level_mask.position
 	water_level_label.modulate = Color.RED
+	tentacle1.visible = false
+	tentacle2.visible = false
+	tentacle1.set_start(tentacle_origin)
+	tentacle1.set_last(tentacle_rest1)
+	tentacle2.set_start(tentacle_origin)
+	tentacle2.set_last(tentacle_rest2)
 
 
 func _process(delta: float) -> void:
+	# Tentacle 1 logic
+	var mouse_position_local := to_local(get_global_mouse_position())
+	is_mouse_near_tentacle_origin = mouse_position_local.distance_to(tentacle_origin) < tentacle_activation_radius
+	
+	if is_mouse_near_tentacle_origin:
+		tentacle1.set_last(mouse_position_local)
+		tentacle2.set_last(mouse_position_local)
+	else:
+		tentacle1.set_last(tentacle_rest1)
+		tentacle2.set_last(tentacle_rest2)
+
+	# Pot logic
 	var stage = water_level_to_stage()
 	water_level_mask.position = Vector2(water_level_mask_pivot.x, water_level_mask_pivot.y - (stage * 1))
 	water_level_label.visible = Globals.water_level_label_visible
@@ -60,18 +86,11 @@ func water_level_to_stage() -> int:
 
 func grow_to_next_phase() -> void:
 	curr_plant_phase += 1
+	if curr_plant_phase == PLANT_PHASE_TEXTURES.size() - 1:
+		tentacle1.visible = true
+		tentacle2.visible = true
 	plant_sprite.texture = PLANT_PHASE_TEXTURES[curr_plant_phase]
 	water_level -= water_consumption_per_phase
-
-	# Particle effect
-	if growth_particle_effect_scene == null:
-		return
-	var particle := growth_particle_effect_scene.instance() as CPUParticles2D
-	particle.position = plant_sprite.global_position
-	particle.rotation = global_rotation
-	particle.emitting = true
-
-	get_tree().current_scene.add_child(particle)
 
 
 func get_fill_percentage() -> int:

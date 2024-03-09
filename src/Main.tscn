@@ -59,7 +59,7 @@ color = Color(0.956863, 0.823529, 0.705882, 1)
 [node name="Entities" type="Node2D" parent="."]
 
 [node name="WateringCan" parent="Entities" instance=ExtResource("5_igsd8")]
-position = Vector2(179, 137)
+position = Vector2(185, 141)
 
 [node name="Pot1" parent="Entities" instance=ExtResource("6_c8hs0")]
 position = Vector2(119, 138)
