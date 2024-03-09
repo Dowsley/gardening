@@ -1,35 +1,39 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=6 format=3 uid="uid://km41nkcrprpx"]
 
-[ext_resource path="res://assets/plants/Classic/0.png" type="Texture" id=1]
-[ext_resource path="res://src/core/Seed.cs" type="Script" id=2]
+[ext_resource type="Texture2D" uid="uid://durrrjd3w324s" path="res://assets/plants/Classic/0.png" id="1"]
+[ext_resource type="Script" path="res://src/core/seed.gd" id="1_3vqy8"]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 3.75, 4 )
+[sub_resource type="RectangleShape2D" id="1"]
+size = Vector2(7, 8)
 
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 3.5, 4 )
+[sub_resource type="RectangleShape2D" id="2"]
+size = Vector2(7, 8)
 
-[sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 3.5, 4 )
+[sub_resource type="RectangleShape2D" id="3"]
+size = Vector2(7, 8)
 
 [node name="Seed" type="RigidBody2D"]
-script = ExtResource( 2 )
+script = ExtResource("1_3vqy8")
 
-[node name="Sprite" type="Sprite" parent="."]
-texture = ExtResource( 1 )
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1")
+centered = false
 
 [node name="DraggableArea2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DraggableArea2D"]
-shape = SubResource( 1 )
+position = Vector2(3.5, 4)
+shape = SubResource("1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 2 )
+position = Vector2(3.5, 4)
+shape = SubResource("2")
 
 [node name="PotCollisionArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PotCollisionArea"]
-shape = SubResource( 3 )
+position = Vector2(3.5, 4)
+shape = SubResource("3")
 
-[connection signal="input_event" from="DraggableArea2D" to="." method="_on_DraggableArea_input_event"]
-[connection signal="area_shape_entered" from="PotCollisionArea" to="." method="_on_PotCollisionArea_area_shape_entered"]
+[connection signal="input_event" from="DraggableArea2D" to="." method="_on_draggable_area_input_event"]
+[connection signal="area_shape_entered" from="PotCollisionArea" to="." method="_on_pot_collision_area_area_shape_entered"]

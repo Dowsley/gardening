@@ -1,6 +1,6 @@
-[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://tnc0iba55m72"]
 
-[sub_resource type="Shader" id=1]
+[sub_resource type="Shader" id="1"]
 code = "shader_type canvas_item;
 
 uniform vec2 Direction = vec2(1.0, 0.0);
@@ -12,6 +12,6 @@ void fragment()
 }"
 
 [resource]
-shader = SubResource( 1 )
-shader_param/Direction = Vector2( 1, 0 )
-shader_param/Speed = 0.005
+shader = SubResource("1")
+shader_parameter/Direction = Vector2(1, 0)
+shader_parameter/Speed = 0.005
