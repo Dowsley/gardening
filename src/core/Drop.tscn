@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://6lo3vkkduyn2"]
 
-[ext_resource type="Texture2D" uid="uid://ddfpp38a7qy40" path="res://assets/drop.png" id="1"]
+[ext_resource type="Texture2D" uid="uid://ddfpp38a7qy40" path="res://assets/sprites/drop.png" id="1"]
 [ext_resource type="Script" path="res://src/core/drop.gd" id="1_q0o3y"]
-[ext_resource type="Texture2D" uid="uid://clf2r0ump7bxg" path="res://assets/drop_impact.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://clf2r0ump7bxg" path="res://assets/sprites/drop_impact.png" id="2"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(1, 1)

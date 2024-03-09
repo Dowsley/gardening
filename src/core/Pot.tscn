@@ -1,12 +1,12 @@
 [gd_scene load_steps=10 format=3 uid="uid://dsobgv84o1vkp"]
 
-[ext_resource type="Texture2D" uid="uid://d4e0am3gyx5ob" path="res://assets/pots/SmartClayPot/smart_clay_pot.png" id="1"]
+[ext_resource type="Texture2D" uid="uid://d4e0am3gyx5ob" path="res://assets/sprites/pots/smart_red/pot.png" id="1"]
 [ext_resource type="Script" path="res://src/core/pot.gd" id="1_xdr3s"]
-[ext_resource type="Texture2D" uid="uid://c8ips0pyy51gn" path="res://assets/plants/Probe/probe_5_stalk_and_flower.png" id="3"]
-[ext_resource type="Texture2D" uid="uid://0mrsgka2emny" path="res://assets/pots/SmartClayPot/smart_clay_pot_waterline_mask.png" id="5"]
-[ext_resource type="Texture2D" uid="uid://cox80ojdqkxrn" path="res://assets/pots/SmartClayPot/smart_clay_pot_waterline.png" id="6"]
-[ext_resource type="Texture2D" uid="uid://b3iupyei257sy" path="res://assets/pots/SmartClayPot/smart_clay_pot_meter.png" id="7"]
-[ext_resource type="FontFile" path="res://assets/Gravity.tres" id="8"]
+[ext_resource type="Texture2D" uid="uid://c8ips0pyy51gn" path="res://assets/plants/probe/4_alt.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://0mrsgka2emny" path="res://assets/sprites/pots/smart_red/hud_mask.png" id="5"]
+[ext_resource type="Texture2D" uid="uid://cox80ojdqkxrn" path="res://assets/sprites/pots/smart_red/hud.png" id="6"]
+[ext_resource type="Texture2D" uid="uid://b3iupyei257sy" path="res://assets/sprites/pots/smart_red/hud_meter.png" id="7"]
+[ext_resource type="FontFile" path="res://assets/fonts/gravity.tres" id="8"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(26, 29)

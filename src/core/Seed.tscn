@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://km41nkcrprpx"]
 
-[ext_resource type="Texture2D" uid="uid://durrrjd3w324s" path="res://assets/plants/Classic/0.png" id="1"]
+[ext_resource type="Texture2D" uid="uid://durrrjd3w324s" path="res://assets/plants/probe/seed.png" id="1"]
 [ext_resource type="Script" path="res://src/core/seed.gd" id="1_3vqy8"]
 
 [sub_resource type="RectangleShape2D" id="1"]

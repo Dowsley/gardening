@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://c228mdi42hmnk"]
+
+[ext_resource type="Script" path="res://src/core/watering_can.gd" id="1_8sqv0"]
+[ext_resource type="Texture2D" uid="uid://bjxdq3858woqj" path="res://assets/sprites/watering_can.png" id="2"]
+
+[sub_resource type="RectangleShape2D" id="1"]
+size = Vector2(32, 23)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_20t7h"]
+size = Vector2(32, 23)
+
+[node name="WateringCan" type="RigidBody2D"]
+script = ExtResource("1_8sqv0")
+drops_per_second = 10
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2")
+
+[node name="DraggableArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DraggableArea"]
+position = Vector2(0, 4.5)
+shape = SubResource("1")
+
+[node name="DropSpawnPosition" type="Marker2D" parent="."]
+position = Vector2(-16, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 4.5)
+shape = SubResource("RectangleShape2D_20t7h")
+
+[connection signal="input_event" from="DraggableArea" to="." method="_on_draggable_area_input_event"]

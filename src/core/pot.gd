@@ -18,11 +18,11 @@ var _water_level := 0.0
 
 var PLANT_PHASE_TEXTURES := [
 	null,
-	preload("res://assets/plants/Probe/probe_1.png"),
-	preload("res://assets/plants/Probe/probe_2.png"),
-	preload("res://assets/plants/Probe/probe_3.png"),
-	preload("res://assets/plants/Probe/probe_4.png"),
-	preload("res://assets/plants/Probe/probe_5.png"),
+	preload("res://assets/sprites/plants/probe/0.png"),
+	preload("res://assets/sprites/plants/probe/1.png"),
+	preload("res://assets/sprites/plants/probe/2.png"),
+	preload("res://assets/sprites/plants/probe/3.png"),
+	preload("res://assets/sprites/plants/probe/4.png"),
 ]
 
 func _ready() -> void:

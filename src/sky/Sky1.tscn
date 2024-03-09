@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=3 uid="uid://daomh61awu8ns"]
 
-[ext_resource type="Texture2D" uid="uid://bygpxlqgcrvmu" path="res://assets/clouds/Clouds 1/1.png" id="1"]
-[ext_resource type="Texture2D" uid="uid://c6kanxbxhk5nr" path="res://assets/clouds/Clouds 1/2.png" id="2"]
-[ext_resource type="Texture2D" uid="uid://dn356drm1u6jx" path="res://assets/clouds/Clouds 1/4.png" id="3"]
-[ext_resource type="Texture2D" uid="uid://cb4ywpokcf68m" path="res://assets/clouds/Clouds 1/3.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://bygpxlqgcrvmu" path="res://assets/sprites/clouds/clouds1/1.png" id="1"]
+[ext_resource type="Texture2D" uid="uid://c6kanxbxhk5nr" path="res://assets/sprites/clouds/clouds1/2.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://dn356drm1u6jx" path="res://assets/sprites/clouds/clouds1/4.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://cb4ywpokcf68m" path="res://assets/sprites/clouds/clouds1/3.png" id="4"]
 
 [sub_resource type="Shader" id="1"]
 code = "shader_type canvas_item;

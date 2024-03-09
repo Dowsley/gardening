@@ -1,10 +1,10 @@
 [gd_scene load_steps=9 format=3 uid="uid://c7y2j23e3srd0"]
 
-[ext_resource type="Texture2D" uid="uid://d2tkxj0a7e6qp" path="res://assets/clouds/Clouds 5/2.png" id="1"]
-[ext_resource type="Texture2D" uid="uid://boifsuwmuct7v" path="res://assets/clouds/Clouds 5/3.png" id="2"]
-[ext_resource type="Texture2D" uid="uid://bndlola4p1sqx" path="res://assets/clouds/Clouds 5/1.png" id="3"]
-[ext_resource type="Texture2D" uid="uid://c0tcukotmo7t2" path="res://assets/clouds/Clouds 5/4.png" id="5"]
-[ext_resource type="Texture2D" uid="uid://x2l8vaiex4p1" path="res://assets/clouds/Clouds 5/5.png" id="6"]
+[ext_resource type="Texture2D" uid="uid://d2tkxj0a7e6qp" path="res://assets/sprites/clouds/clouds5/2.png" id="1"]
+[ext_resource type="Texture2D" uid="uid://boifsuwmuct7v" path="res://assets/sprites/clouds/clouds5/3.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://bndlola4p1sqx" path="res://assets/sprites/clouds/clouds5/1.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://c0tcukotmo7t2" path="res://assets/sprites/clouds/clouds5/4.png" id="5"]
+[ext_resource type="Texture2D" uid="uid://x2l8vaiex4p1" path="res://assets/sprites/clouds/clouds5/5.png" id="6"]
 
 [sub_resource type="Shader" id="1"]
 code = "shader_type canvas_item;
