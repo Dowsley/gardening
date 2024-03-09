@@ -1,7 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://c228mdi42hmnk"]
+[gd_scene load_steps=7 format=3 uid="uid://c228mdi42hmnk"]
 
 [ext_resource type="Script" path="res://src/core/watering_can.gd" id="1_8sqv0"]
 [ext_resource type="Texture2D" uid="uid://bjxdq3858woqj" path="res://assets/sprites/watering_can.png" id="2"]
+[ext_resource type="PackedScene" uid="uid://6lo3vkkduyn2" path="res://src/core/drop.tscn" id="2_4s524"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_kg1t0"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(32, 23)
@@ -10,8 +13,10 @@ size = Vector2(32, 23)
 size = Vector2(32, 23)
 
 [node name="WateringCan" type="RigidBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_kg1t0")
 script = ExtResource("1_8sqv0")
 drops_per_second = 10
+drop_scene = ExtResource("2_4s524")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2")
