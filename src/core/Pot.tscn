@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dsobgv84o1vkp"]
+[gd_scene load_steps=12 format=3 uid="uid://dsobgv84o1vkp"]
 
 [ext_resource type="Texture2D" uid="uid://d4e0am3gyx5ob" path="res://assets/sprites/pots/smart_red/pot.png" id="1"]
 [ext_resource type="Script" path="res://src/core/pot.gd" id="1_xdr3s"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://b3iupyei257sy" path="res://assets/sprites/pots/smart_red/hud_meter.png" id="7"]
 [ext_resource type="FontFile" path="res://assets/fonts/gravity.tres" id="8"]
 [ext_resource type="PackedScene" uid="uid://d0kyi6kr63umy" path="res://src/core/verlet.tscn" id="8_w2xqj"]
+[ext_resource type="Texture2D" uid="uid://cahrow5huvyll" path="res://assets/sprites/plants/probe/tentacle_end.png" id="10_088yh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kv4pc"]
 size = Vector2(26, 29)
@@ -82,3 +83,12 @@ offset_right = 17.0
 offset_bottom = 41.0
 theme_override_fonts/font = ExtResource("8")
 text = "0"
+
+[node name="TentacleEnd1" type="Sprite2D" parent="."]
+position = Vector2(2.5, -23)
+texture = ExtResource("10_088yh")
+
+[node name="TentacleEnd2" type="Sprite2D" parent="."]
+position = Vector2(8, -16.5)
+rotation = -1.5708
+texture = ExtResource("10_088yh")

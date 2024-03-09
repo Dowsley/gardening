@@ -24,6 +24,8 @@ const PLANT_PHASE_TEXTURES := [
 @onready var tentacle_origin: Vector2 = $TentacleOriginMarker.position
 @onready var tentacle_rest1: Vector2 = $Tentacle1RestMarker.position
 @onready var tentacle_rest2: Vector2 = $Tentacle2RestMarker.position
+@onready var tentacle_end1: Sprite2D = $TentacleEnd1
+@onready var tentacle_end2: Sprite2D = $TentacleEnd2
 
 var is_mouse_near_tentacle_origin := false
 
@@ -39,6 +41,8 @@ func _ready() -> void:
 	water_level_label.modulate = Color.RED
 	tentacle1.visible = false
 	tentacle2.visible = false
+	tentacle_end1.visible = false
+	tentacle_end2.visible = false
 	tentacle1.set_start(tentacle_origin)
 	tentacle1.set_last(tentacle_rest1)
 	tentacle2.set_start(tentacle_origin)
@@ -56,6 +60,20 @@ func _process(delta: float) -> void:
 	else:
 		tentacle1.set_last(tentacle_rest1)
 		tentacle2.set_last(tentacle_rest2)
+	# update tentacle end rotation
+	var last_point = tentacle1.pos[tentacle1.point_count - 1]
+	var second_last_point = tentacle1.pos[tentacle1.point_count - 2]
+	var direction = last_point - second_last_point
+	var angle = direction.angle() # Get the angle in radians
+	tentacle_end1.rotation = angle
+	tentacle_end1.position = last_point
+	
+	last_point = tentacle2.pos[tentacle2.point_count - 1]
+	second_last_point = tentacle2.pos[tentacle2.point_count - 2]
+	direction = last_point - second_last_point
+	angle = direction.angle() # Get the angle in radians
+	tentacle_end2.rotation = angle
+	tentacle_end2.position = last_point
 
 	# Pot logic
 	var stage = water_level_to_stage()
@@ -89,6 +107,8 @@ func grow_to_next_phase() -> void:
 	if curr_plant_phase == PLANT_PHASE_TEXTURES.size() - 1:
 		tentacle1.visible = true
 		tentacle2.visible = true
+		tentacle_end1.visible = true
+		tentacle_end2.visible = true
 	plant_sprite.texture = PLANT_PHASE_TEXTURES[curr_plant_phase]
 	water_level -= water_consumption_per_phase
 
