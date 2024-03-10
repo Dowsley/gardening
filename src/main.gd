@@ -21,7 +21,7 @@ func _process(delta: float) -> void:
 
 
 func _on_blind_button_gui_input(event: InputEvent):
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and not blind_sprite_anim.is_playing():
 		if event.pressed:
 			if current_blind_state == BlindStates.CLOSED:
 				blind_button.color = Color.GREEN
