@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://src/core/watering_can.gd" id="1_8sqv0"]
 [ext_resource type="Texture2D" uid="uid://bjxdq3858woqj" path="res://assets/sprites/watering_can.png" id="2"]
-[ext_resource type="PackedScene" uid="uid://6lo3vkkduyn2" path="res://src/core/drop.tscn" id="2_4s524"]
+[ext_resource type="PackedScene" uid="uid://6lo3vkkduyn2" path="res://src/autoload/drop.tscn" id="2_4s524"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_kg1t0"]
 
