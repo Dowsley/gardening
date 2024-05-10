@@ -16,6 +16,7 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
+		# Karis te amo
 		if Input.is_action_just_pressed("show_labels"):
 			Globals.water_level_label_visible = not Globals.water_level_label_visible
 
